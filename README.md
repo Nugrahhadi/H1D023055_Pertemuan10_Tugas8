@@ -1179,17 +1179,6 @@ lib/
 
 ---
 
-## Fitur Keamanan
-
-- ✅ **Autentikasi dengan JWT Token**: Setiap request ke API menggunakan Bearer token untuk validasi
-- ✅ **Validasi Form**: Semua input divalidasi sebelum dikirim ke server
-- ✅ **Password Encryption**: Password di-hash menggunakan bcrypt sebelum disimpan di database
-- ✅ **Session Management**: Token dan user info disimpan di SharedPreferences
-- ✅ **Error Handling**: Semua API call dilengkapi dengan error handling
-- ✅ **CORS Policy**: Server sudah dikonfigurasi untuk menerima request dari berbagai origin
-
----
-
 ## Arsitektur Aplikasi
 
 Aplikasi ini menggunakan **BLoC Pattern** (Business Logic Component):
@@ -1214,78 +1203,6 @@ API Layer (Network)
 6. **API → BLoC** → Response di-parse menjadi model
 7. **BLoC → UI** → BLoC mengembalikan data ke UI
 8. **UI Update** → UI di-render dengan data baru
-
----
-
-## API Endpoints
-
-| Method | Endpoint       | Fungsi                   | Auth Required |
-| ------ | -------------- | ------------------------ | ------------- |
-| POST   | `/registrasi`  | Registrasi user baru     | ❌            |
-| POST   | `/login`       | Login dan dapatkan token | ❌            |
-| GET    | `/produk`      | Get semua produk         | ✅            |
-| POST   | `/produk`      | Tambah produk baru       | ✅            |
-| GET    | `/produk/{id}` | Get detail produk        | ✅            |
-| PUT    | `/produk/{id}` | Update produk            | ✅            |
-| DELETE | `/produk/{id}` | Hapus produk             | ✅            |
-
-**Auth Required** = Memerlukan Bearer token di header
-
----
-
-## Troubleshooting
-
-### Error: Connection Refused
-
-**Penyebab:** Server CodeIgniter tidak running atau URL salah
-
-**Solusi:**
-
-1. Pastikan server running: `php spark serve --host=0.0.0.0 --port=8080`
-2. Cek URL di `api_url.dart` sesuai platform (localhost untuk web, 10.0.2.2 untuk emulator)
-
-### Error: CORS Policy
-
-**Penyebab:** Browser memblokir request cross-origin
-
-**Solusi:**
-
-```bash
-flutter run -d chrome --web-browser-flag "--disable-web-security"
-```
-
-### Error: Token Null
-
-**Penyebab:** Token belum disimpan atau sudah expired
-
-**Solusi:**
-
-1. Lakukan login ulang
-2. Cek apakah token tersimpan: `await UserInfo().getToken()`
-
-### Error: Invalid JSON
-
-**Penyebab:** Response dari server bukan format JSON valid
-
-**Solusi:**
-
-1. Cek response di console/terminal
-2. Pastikan server mengembalikan JSON dengan struktur yang benar
-
----
-
-## Catatan Pengembangan
-
-### Fitur yang Sudah Diimplementasikan:
-
-- ✅ Registrasi dengan validasi email
-- ✅ Login dengan JWT authentication
-- ✅ CRUD Produk (Create, Read, Update, Delete)
-- ✅ Token-based authorization
-- ✅ Error handling dengan dialog
-- ✅ Loading indicator
-- ✅ Form validation
-- ✅ Responsive UI
 
 ### Teknologi yang Digunakan:
 
@@ -1316,7 +1233,7 @@ Universitas Jenderal Soedirman
 
 ## Lisensi
 
-Proyek ini dibuat untuk keperluan tugas kuliah Pemrograman Mobile.
+Proyek ini dibuat untuk keperluan tugas kuliah Praktikum Pemrograman Mobile.
 
 ---
 
